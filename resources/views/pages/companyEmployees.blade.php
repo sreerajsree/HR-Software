@@ -433,8 +433,10 @@
                                                 </div>
                                             </div>
                                         </div>
+                                       @if(Auth::user()->status == 0)
                                         <a href="/edit-employee/{{ encrypt($emp->id) }}"
                                             class="btn btn-sm btn-secondary m-2">Edit</a>
+                                        @endif
                                         <a href="/edit-payroll/{{ encrypt($emp->id) }}"
                                             class="btn btn-sm btn-dark m-2">Salary Details</a>
                                         <a href="/hike/{{ encrypt($emp->id) }}"

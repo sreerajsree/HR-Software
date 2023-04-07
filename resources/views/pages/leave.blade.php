@@ -59,7 +59,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>Total Leaves</td>
-                                        <td>20</td>
+                                        <td>{{ Auth::user()->shift == 'US' ? 24 : 20 }}</td>
                                     </tr>
                                     <tr>
                                         <td>Applied Leaves<br>( Normal )</td>

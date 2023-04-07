@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/userattendanceview/{id}', [UserattendanceController::class, 'userattendview'])->name('userattendview');
     Route::get('/view-profile', [ProfileController::class, 'viewprofile'])->name('view-profile');
     Route::post('/profile-pic-upload', [ProfileController::class, 'fileUpload'])->name('profile-pic-upload');
+    Route::post('/change-password', [ProfileController::class, 'updatePassword'])->name('update-password');
     Route::get('/trainees-leave', [LeaveController::class, 'traineesleave'])->name('trainees.leave');
     Route::post('/trainee-request', [LeaveController::class, 'traineeRequest'])->name('trainee.request');
     Route::get('/tleave-approve/{id}', [LeaveController::class, 'tleaveApprove'])->name('tleave.approve');
@@ -89,5 +90,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hike/{id}', [HikeController::class, 'edit'])->name('hike.edit');
     Route::get('/add-hike/{id}', [HikeController::class, 'addHike'])->name('add.hike');
     Route::post('/request-hike/', [HikeController::class, 'requestHike'])->name('hike.request');
+    Route::get('/hiring', [HikeController::class, 'hiring'])->name('hiring.index');
+    Route::post('/add-candidate', [HikeController::class, 'addCandidate'])->name('add.candidate');
     
 });

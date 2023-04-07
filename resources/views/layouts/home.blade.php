@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
     @yield('title')
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Vendors styles-->
     <link rel="stylesheet" href="/vendors/simplebar/css/simplebar.css">
@@ -50,8 +50,8 @@
     @yield('content')
 
     <footer class="footer">
-        <div>© 2022 Apsensys Technologies.</div>
-        <div class="ms-auto">Powered by <span class="text-primary">Development Team</span></div>
+        <div>© <?php echo date("Y"); ?> Apsensys Technologies.</div>
+        <div class="ms-auto">Powered by <a href="mailto:online@thesiliconreview.com" class="text-primary" style="text-decoration: none;">Development Team</a></div>
     </footer>
     </div>
 

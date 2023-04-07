@@ -21,11 +21,9 @@
         <lottie-player class="lottie position-absolute" src="https://assets1.lottiefiles.com/packages/lf20_rovf9gzu.json"
             background="transparent" speed="0.6" style="z-index:20; width: 80%; height: 100vh;" autoplay></lottie-player>
     @endif
-    <div class="header-divider"></div>
-
-    <div class="body flex-grow-1 px-3" style="height: 100vh;">
+    <div class="body flex-grow-1 px-3">
         <div class="container-lg">
-            <div style="position: absolute; top:22%; left:28%;">
+            <div>
                 @if (Auth::user()->status == 0)
                     <div id="nav-tab" role="tablist">
                         <div class="row">
@@ -34,8 +32,9 @@
                                     data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
                                     aria-selected="true">
                                     <div class="card mb-4 p-5 cardhover">
-                                        <img src="assets/img/apsensys-logo.png" alt=""
-                                            style="width: 200px; height: 50px" class="d-flex mx-auto">
+                                        {{-- <img src="assets/img/apsensys-logo.png" alt=""
+                                            style="width: 200px; height: 50px" class="d-flex mx-auto"> --}}
+                                            <h3 class="text-center">Apsensys Technologies</h3>
                                     </div>
                                 </a>
                             </div>
@@ -44,8 +43,9 @@
                                     data-coreui-target="#nav-profile" type="button" role="tab"
                                     aria-controls="nav-profile" aria-selected="false">
                                     <div class="card mb-4 p-5 cardhover">
-                                        <img src="assets/img/tsr-logo.png" alt="" style="width: 260px; height: 50px"
-                                            class="d-flex mx-auto">
+                                        {{-- <img src="assets/img/tsr-logo.png" alt="" style="width: 260px; height: 50px"
+                                            class="d-flex mx-auto"> --}}
+                                            <h3 class="text-center">Apsensys Media</h3>
                                     </div>
                                 </a>
                             </div>
@@ -54,8 +54,9 @@
                                     data-coreui-target="#nav-contact" type="button" role="tab"
                                     aria-controls="nav-contact" aria-selected="false">
                                     <div class="card mb-4 p-5 cardhover">
-                                        <img src="assets/img/cb-logo.svg" alt="" style="width: 200px; height: 50px"
-                                            class="d-flex mx-auto">
+                                        {{-- <img src="assets/img/cb-logo.svg" alt="" style="width: 200px; height: 50px"
+                                            class="d-flex mx-auto"> --}}
+                                            <h3 class="text-center">Apsensys Care</h3>
                                     </div>
                                 </a>
                             </div>
@@ -172,6 +173,7 @@
                                                         @endif
                                                     </td>
                                                 </tr>
+                                                @if(Auth::user()->status != 2)
                                                 <tr>
                                                     <th>Manager</th>
                                                     <td>
@@ -182,6 +184,7 @@
                                                         @endif
                                                     </td>
                                                 </tr>
+                                                @endif
                                                 <tr>
                                                     <th>Joined Date</th>
                                                     <td>
@@ -200,7 +203,7 @@
                                     tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>Apsensys Technologies Pvt Ltd.</h1>
+                                            <h1 class="text-center my-4">Apsensys Technologies Pvt Ltd</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -208,8 +211,9 @@
                                             </div>
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card mb-4">
-                                                    <img src="assets/img/apsensys-logo.png" alt="" style="width: 400px;"
-                                                        class="mx-auto">
+                                                    <!--<img src="assets/img/apsensys-logo.png" alt="" style="width: 400px;"-->
+                                                    <!--    class="mx-auto">-->
+                                                    <h1>Apsensys Technologies Pvt Ltd</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>
@@ -271,7 +275,7 @@
                                     aria-labelledby="nav-profile-tab" tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>The Silicon Review</h1>
+                                            <h1>Apsensys Media</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -279,8 +283,9 @@
                                             </div>
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card">
-                                                    <img src="assets/img/tsr-logo.png" alt="" style="width: 430px;"
-                                                        class="mx-auto">
+                                                    <!--<img src="assets/img/tsr-logo.png" alt="" style="width: 430px;"-->
+                                                    <!--    class="mx-auto">-->
+                                                    <h1 class="text-center my-4">Apsensys Media LLP</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>
@@ -351,7 +356,7 @@
                                     aria-labelledby="nav-contact-tab" tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>CIO Bulletin Inc</h1>
+                                            <h1>Apsensys Care</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -359,8 +364,9 @@
                                             </div>
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card">
-                                                    <img src="assets/img/cb-logo.svg" alt="" style="width: 430px;"
-                                                        class="mx-auto py-5">
+                                                    <!--<img src="assets/img/cb-logo.svg" alt="" style="width: 430px;"-->
+                                                    <!--    class="mx-auto py-5">-->
+                                                    <h1 class="text-center my-4">Apsensys Care</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>
@@ -466,8 +472,9 @@
                                             <div class="col-sm-6 col-lg-6">
                                                 {{-- Company details Card --}}
                                                 <div class="card">
-                                                    <img src="assets/img/apsensys-logo.png" alt="" style="width: 400px;"
-                                                        class="mx-auto">
+                                                    <!--<img src="assets/img/apsensys-logo.png" alt="" style="width: 400px;"-->
+                                                    <!--    class="mx-auto">-->
+                                                    <h1 class="text-center my-4">Apsensys Technologies Pvt Ltd</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>
@@ -589,7 +596,7 @@
                                     tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>The Silicon Review</h1>
+                                            <h1>Apsensys Media</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -625,8 +632,9 @@
                                             </div>
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card">
-                                                    <img src="assets/img/tsr-logo.png" alt="" style="width: 430px;"
-                                                        class="mx-auto">
+                                                    <!--<img src="assets/img/tsr-logo.png" alt="" style="width: 430px;"-->
+                                                    <!--    class="mx-auto">-->
+                                                    <h1 class="text-center my-4">Apsensys Media LLP</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>
@@ -757,7 +765,7 @@
                                     tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>CIO Bulletin Inc</h1>
+                                            <h1>Apsensys Care</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -793,8 +801,9 @@
                                             </div>
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card">
-                                                    <img src="assets/img/cb-logo.svg" alt="" style="width: 430px;"
-                                                        class="mx-auto py-5">
+                                                    <!--<img src="assets/img/cb-logo.svg" alt="" style="width: 430px;"-->
+                                                    <!--    class="mx-auto py-5">-->
+                                                    <h1 class="text-center my-4">Apsensys Care</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>

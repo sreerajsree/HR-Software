@@ -21,24 +21,55 @@
                     </svg> Dashboard</a>
             </li>
 
-            @if (Auth::user()->status == 0)
+            @if (Auth::user()->status == 0 || Auth::user()->status == 2)
                 <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                         <svg class="nav-icon">
                             <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-industry"></use>
                         </svg> Companies</a>
                     <ul class="nav-group-items">
-                        <li class="nav-item"><a class="nav-link" href="/Apsensys/employees"><span
+                        @if(Auth::user()->company_id == 3 || Auth::user()->status == 0)
+                        <li class="nav-item"><a class="nav-link" href="/Apsensys-Technologies/employees"><span
                                     class="nav-icon"></span>
-                                Apsensys</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/The-Silicon-Review/employees"><span
+                                Apsensys Technologies</a></li>
+                        @endif
+                        @if(Auth::user()->company_id == 1 || Auth::user()->status == 0)
+                        <li class="nav-item"><a class="nav-link" href="/Apsensys-Media/employees"><span
                                     class="nav-icon"></span>
-                                The Silicon Review</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/CIO-Bulletin/employees"><span
+                                Apsensys Media</a></li>
+                        @endif
+                        @if(Auth::user()->company_id == 2 || Auth::user()->status == 0)
+                        <li class="nav-item"><a class="nav-link" href="/Apsensys-Care/employees"><span
                                     class="nav-icon"></span>
-                                CIO Bulletin</a></li>
+                                Apsensys Care</a></li>
+                        @endif
                     </ul>
                 </li>
             @endif
+            
+            <!--@if (Auth::user()->status == 0 || Auth::user()->status == 2)-->
+            <!--    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">-->
+            <!--            <svg class="nav-icon">-->
+            <!--                <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-industry"></use>-->
+            <!--            </svg> Companies</a>-->
+            <!--        <ul class="nav-group-items">-->
+            <!--            @if(Auth::user()->company_id == 3 || Auth::user()->company_id == 0)-->
+            <!--            <li class="nav-item"><a class="nav-link" href="/Apsensys/employees"><span-->
+            <!--                        class="nav-icon"></span>-->
+            <!--                    Apsensys</a></li>-->
+            <!--            @endif-->
+            <!--            @if(Auth::user()->company_id == 1 || Auth::user()->company_id == 0)-->
+            <!--            <li class="nav-item"><a class="nav-link" href="/The-Silicon-Review/employees"><span-->
+            <!--                        class="nav-icon"></span>-->
+            <!--                    The Silicon Review</a></li>-->
+            <!--            @endif-->
+            <!--            @if(Auth::user()->company_id == 2 || Auth::user()->company_id == 0)-->
+            <!--            <li class="nav-item"><a class="nav-link" href="/CIO-Bulletin/employees"><span-->
+            <!--                        class="nav-icon"></span>-->
+            <!--                    CIO Bulletin</a></li>-->
+            <!--            @endif-->
+            <!--        </ul>-->
+            <!--    </li>-->
+            <!--@endif-->
 
             <li class="nav-group"><a class="nav-link nav-group-toggle @if (Auth::user()->add_status == 0) disabled @endif"
                     href="#">
@@ -47,9 +78,8 @@
                     </svg> Attendance</a>
                 <ul class="nav-group-items">
                     <li class="nav-item"><a class="nav-link" href="{{ route('attendance') }}">View Attendance</a></li>
-                    @if (Auth::user()->status == 0)
-                        <li class="nav-item"><a class="nav-link" href="{{ route('userattendance') }}">User Attendance
-                                Record</a></li>
+                    @if (Auth::user()->status == 0 || Auth::user()->status == 2)
+                        <li class="nav-item"><a class="nav-link" href="{{ route('userattendance') }}">User Attendance</a></li>
                     @endif
                 </ul>
             </li>
@@ -64,7 +94,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('leave') }}">Apply for Leave</a></li>
                     @endif
 
-                    @if (Auth::user()->status == 0)
+                    @if (Auth::user()->status == 0 || Auth::user()->status == 2)
                         <li class="nav-item"><a class="nav-link" href="{{ route('leave.applications') }}">Leave
                                 Applications</a></li>
                     @endif
@@ -150,6 +180,7 @@
                     </svg> Company Policy</a>
             </li>
 
+            @if (Auth::user()->status != 0 && Auth::user()->add_status != 1)
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-folder-open"></use>
@@ -159,18 +190,27 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('add') }}">Add Personal Details</a>
                         </li>
                     @endif
-                    @if (Auth::user()->add_status == 1)
-                        <li class="nav-item"><a class="nav-link" href="{{ route('documents') }}">Upload
-                                Documents</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->status == 0)
-                        <li class="nav-item"><a class="nav-link" href="{{ route('view.documents') }}">View
-                                Documents</a>
-                        </li>
-                    @endif
+                    <!--@if (Auth::user()->add_status == 1)-->
+                    <!--    <li class="nav-item"><a class="nav-link" href="{{ route('documents') }}">Upload-->
+                    <!--            Documents</a>-->
+                    <!--    </li>-->
+                    <!--@endif-->
+                    <!--@if (Auth::user()->status == 0)-->
+                    <!--    <li class="nav-item"><a class="nav-link" href="{{ route('view.documents') }}">View-->
+                    <!--            Documents</a>-->
+                    <!--    </li>-->
+                    <!--@endif-->
                 </ul>
             </li>
+            @endif
+            @if (Auth::user()->status == 0)
+                <li class="nav-item"><a class="nav-link @if (Auth::user()->add_status == 0) disabled @endif"
+                        href="{{ route('hiring.index') }}">
+                        <svg class="nav-icon">
+                            <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-paperclip"></use>
+                        </svg> Hiring</a>
+                </li>
+            @endif
         </ul>
     </div>
     <div>
@@ -216,7 +256,7 @@
                 </tr>
             </table>
         </div>
-        <button class="btn btn-primary login-btn w-100 py-3 fw-bold @if ($attendance->time_out != '00:00:00') disabled @endif"
+        <button style="position:sticky; bottom:0;" class="btn btn-primary login-btn w-100 py-3 fw-bold @if ($attendance->time_out != '00:00:00') disabled @endif"
             data-coreui-toggle="modal" data-coreui-target="#timeOutModal">TIME OUT</button>
     </div>
 </div>

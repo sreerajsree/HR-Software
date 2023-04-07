@@ -8842,6 +8842,7 @@ html:not([dir=rtl]) .sidebar.sidebar-end {
   }
   html:not([dir=rtl]) .sidebar.sidebar-fixed:not(.sidebar-end) {
     left: 0;
+    overflow-y: scroll;
   }
   *[dir=rtl] .sidebar.sidebar-fixed:not(.sidebar-end) {
     right: 0;

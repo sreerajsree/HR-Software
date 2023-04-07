@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Hike;
 use App\Models\User;
+use App\Models\Hiring;
 use App\Models\personal_table;
 use Alert;
 use Illuminate\Support\Facades\Crypt;
@@ -38,6 +39,23 @@ class HikeController extends Controller
         $hike->hike_year = $request->hike_year;
         $hike->save();
         Alert::toast('Hike Added Successfully', 'success');
+        return redirect()->back();
+    }
+
+    public function hiring() {
+        return view('pages.hiring');
+    }
+
+    public function addCandidate(Request $request) {
+        $hire = new Hiring();
+        $hire->name = $request->name;
+        $hire->email = $request->email;
+        $hire->contact = $request->contact;
+        $hire->skills = $request->skills;
+        $hire->comments = $request->comments;
+        $hire->status = 0;
+        $hire->save();
+        Alert::toast('Candidate Added Successfully', 'success');
         return redirect()->back();
     }
 }

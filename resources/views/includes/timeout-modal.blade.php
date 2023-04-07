@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
           <img src="https://c.tenor.com/4qs0klfg8nMAAAAM/time-waiting.gif" alt="" class="d-flex mx-auto">
-          <h3 class="text-center">Completed Today's Session</h3>
+          <h3 class="text-center">Completed Today's Session?</h3>
         </div>
         <div class="modal-footer">
             <form action="{{ route('time-out') }}" method="POST">

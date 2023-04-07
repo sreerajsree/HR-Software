@@ -104,7 +104,7 @@ class companyController extends Controller
             ->first();
         $employee = personal_table::join('users', 'users.id', 'personal_tables.user_id')
             ->where('personal_tables.id', Crypt::decrypt($id))
-            ->select('personal_tables.*', 'users.empcode', 'users.ctc')
+            ->select('personal_tables.*', 'users.empcode', 'users.ctc', 'users.status')
             ->get()
             ->first();
         return view('pages.edit', ['employee' => $employee, 'users' => $users]);
@@ -162,6 +162,7 @@ class companyController extends Controller
 
         $empcode = User::find($personal_table->user_id);
         $empcode->empcode = $request->empcode;
+        $empcode->status = $request->empposition;
         $empcode->emp_status = $request->empstatus;
         $empcode->ctc = $request->ctc;
         $empcode->notification = 0;

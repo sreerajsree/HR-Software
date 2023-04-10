@@ -164,10 +164,12 @@
                                     <div class="col">
                                         <select name="leave_type" id="" class="form-control">
                                             <option value="" selected>Select Leave Type</option>
-                                            @if ($remainingLeaves < 1 && (\today()->format('M') == \Carbon\Carbon::parse($leaveDetails->last()->updated_at)->format('M')))
+                                            {{-- @if ($remainingLeaves < 1 && (\today()->format('M') == \Carbon\Carbon::parse($leaveDetails->last()->updated_at)->format('M')))
                                                 <option value="Half Day">Half Day</option>
                                                 <option value="Casual Leave">Casual Leave</option>
-                                            @endif
+                                            @endif --}}
+                                            <option value="Half Day">Half Day</option>
+                                            <option value="Casual Leave">Casual Leave</option>
                                             <option value="Loss of Pay">Loss of Pay</option>
                                             <option value="Loss of Pay (Half Day)">Loss of Pay (Half Day)</option>
                                         </select>

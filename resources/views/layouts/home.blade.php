@@ -27,10 +27,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <!-- Vendors styles-->
     <link rel="stylesheet" href="/vendors/simplebar/css/simplebar.css">
     <link rel="stylesheet" href="/css/vendors/simplebar.css">
-    <!-- Main styles for this application-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
@@ -55,11 +53,9 @@
     </footer>
     </div>
 
-    <!-- CoreUI and necessary plugins-->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="/vendors/coreui.bundle.min.js"></script>
     <script src="/vendors/simplebar/js/simplebar.min.js"></script>
-    <!-- Plugins and scripts required by this view-->
     <script src="/vendors/chart.js/js/chart.min.js"></script>
     <script src="/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
     <script src="/vendors/@coreui/utils/js/coreui-utils.js"></script>

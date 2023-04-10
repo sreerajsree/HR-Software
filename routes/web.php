@@ -43,7 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/leave-request', [LeaveController::class, 'leaveRequest'])->name('leave.request');
     Route::get('/leaveapplications', [LeaveController::class, 'leaveApplications'])->name('leave.applications');
     Route::get('/leave-approve/{id}', [LeaveController::class, 'leaveApprove'])->name('leave.approve');
-    Route::get('/leave-reject/{id}', [LeaveController::class, 'leaveReject'])->name('leave.reject');
+    Route::get('/leave-reject-reason/{id}', [LeaveController::class, 'leaveRejectReason'])->name('leave.rejectreason');
+    Route::post('/leave-reject/{id}', [LeaveController::class, 'leaveReject'])->name('leave.reject');
     Route::get('/our-gallery', [GalleryController::class, 'gallery'])->name('gallery');
     Route::post('/gallery-upload', [GalleryController::class, 'fileUpload'])->name('galleryUpload');
     Route::post('/gallery-delete', [GalleryController::class, 'del'])->name('gallerydelete');

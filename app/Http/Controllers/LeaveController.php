@@ -163,14 +163,21 @@ class LeaveController extends Controller
         return redirect()->back();
     }
 
-    public function leaveReject($id)
+    public function leaveReject(Request $request ,$id)
     {
         $leave = Leave::find($id);
         $leave->status = 'Rejected';
+        $leave->reject_reason = $request->reject_reason;
         $leave->save();
 
         Alert::toast('Leave Rejected Successfully', 'success');
         return redirect()->back();
+    }
+
+    public function leaveRejectReason($id)
+    {
+        $reason = Leave::find($id);
+        return view('pages.reject-reason', compact('reason'));
     }
 
 

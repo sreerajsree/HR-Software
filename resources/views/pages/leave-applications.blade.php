@@ -44,7 +44,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/leave-approve/{{ $leave->id }}">Approve</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="/leave-reject/{{ $leave->id }}">Reject</a>
+                                        <li><a class="dropdown-item" href="/leave-reject-reason/{{ $leave->id }}">Reject</a>
                                         </li>
                                     </ul>
                                 </div>

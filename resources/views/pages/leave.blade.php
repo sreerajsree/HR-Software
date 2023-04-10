@@ -40,11 +40,11 @@
                                             <button class="btn btn-sm btn-danger text-white">{{ $item->status }}</button>
                                         @endif
                                     </td>
-                                    @if($item->status == 'Rejected')
+                                    @if ($item->status == 'Rejected')
                                         <td>
                                             {{ $item->reject_reason }}
                                         </td>
-                                        @else
+                                    @else
                                         <td>Not Rejected</td>
                                     @endif
                                 </tr>
@@ -84,10 +84,7 @@
                                             <td>Approved Leaves<br>( Half Day )</td>
                                             <td>{{ $approvedHalfday }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Penalty Deduction</td>
-                                            <td>₹ 0.00</td>
-                                        </tr>
+
                                     </table>
                                 </div>
                                 <div class="col-6">
@@ -105,64 +102,61 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="card mb-4">
-                    <div class="card-header">
-                        <strong>
-                            Loss of Pay
-                        </strong>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <table class="table">
-                                    <tr>
-                                        <td>Credited Leaves</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total Leaves</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Applied Leaves<br>(Normal)</td>
-                                        <td>{{ $appliedleavesLossOfPayNormal }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Applied Leaves<br>(Half Day)</td>
-                                        <td>{{ $appliedleavesLossOfPaySpecial }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Approved Leaves<br>( Normal )</td>
-                                        <td>{{ $grandtotalLossofPay }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Approved Leaves<br>( Half Day )</td>
-                                        <td>{{ $approvedHalfdaySpecial }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Penalty Deduction</td>
-                                        <td>₹ {{ $penaltyDeduction }}.00</td>
-                                    </tr>
-                                </table>
-                                <p
-                                    style="font-size: 12px; font-style:italic; margin:0; padding:0; margin-left:-0.5rem;">
-                                    **L.O.P = Loss of Pay</p>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-center" style="padding:40px 0; ">
-                                    <h1 class="text-primary">{{ $approvedHalfdaySpecial }}</h1>
-                                    <p>L.O.P Half Day's Taken</p>
-                                    <hr>
-                                    <h1 class="text-primary">{{ $grandtotalLossofPay }}</h1>
-                                    <p>L.O.P Leaves Taken</p>
-                                    <hr>
-                                    <h1 class="text-primary">{{ $lossofpaytotal }}</h1>
-                                    <p>Total Loss of Pay Leaves</p>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <strong>
+                                Loss of Pay
+                            </strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Credited Leaves</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Leaves</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Applied Leaves<br>(Normal)</td>
+                                            <td>{{ $appliedleavesLossOfPayNormal }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Applied Leaves<br>(Half Day)</td>
+                                            <td>{{ $appliedleavesLossOfPaySpecial }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Approved Leaves<br>( Normal )</td>
+                                            <td>{{ $grandtotalLossofPay }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Approved Leaves<br>( Half Day )</td>
+                                            <td>{{ $approvedHalfdaySpecial }}</td>
+                                        </tr>
+
+                                    </table>
+                                    <p
+                                        style="font-size: 12px; font-style:italic; margin:0; padding:0; margin-left:-0.5rem;">
+                                        **L.O.P = Loss of Pay</p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center" style="padding:40px 0; ">
+                                        <h1 class="text-primary">{{ $approvedHalfdaySpecial }}</h1>
+                                        <p>L.O.P Half Day's Taken</p>
+                                        <hr>
+                                        <h1 class="text-primary">{{ $grandtotalLossofPay }}</h1>
+                                        <p>L.O.P Leaves Taken</p>
+                                        <hr>
+                                        <h1 class="text-primary">{{ $lossofpaytotal }}</h1>
+                                        <p>Total Loss of Pay Leaves</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> --}}
                 </div>
                 <div class="col-7">
                     <div class="card mb-4">

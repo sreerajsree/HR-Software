@@ -56,8 +56,8 @@ class LeaveController extends Controller
             ->get()->sum('leave_count');
 
         $status = Leave::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
-        
-        $balanceCasual = Auth::user()->shift == 'US' ? 24 : 20  - $approvedleavesCasual;
+        $tl = Auth::user()->shift == 'US' ? 24 : 20;
+        $balanceCasual = $tl - $approvedleavesCasual;
         $totalBalanceLeaves = $balanceCasual - $approvedHalfday;
         $totalBalanceLeavesnew = $totalBalanceLeaves - $approvedcount;
         $approvedleavesCasualnew = $approvedleavesCasual + $countapprovedCasual;
@@ -80,8 +80,7 @@ class LeaveController extends Controller
 
         $penaltyDeduction = $lossofpaytotal * 500;
 
-
-        $remainingLeaves = Auth::user()->shift == 'US' ? 24 : 20 - ($approvedHalfday + $approvedleavesCasualnew);
+        $remainingLeaves = $tl - ($approvedHalfday + $approvedleavesCasualnew);
         if (Auth::user()->status == 0) {
             $holidays = Holiday::all();
         } else {

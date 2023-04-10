@@ -72,10 +72,10 @@
                                             <td>Approved Leaves<br>( Half Day )</td>
                                             <td>{{ $approvedHalfDay }}</td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td>Penalty Deduction</td>
                                             <td>₹ {{ $penaltyCasual }}.00</td>
-                                        </tr>
+                                        </tr> --}}
                                     </table>
                                 </div>
                                 <div class="col-6">
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="card mb-4">
+                    <div class="card mb-4">
                         <div class="card-header">
                             <strong>
                                 Loss of Pay
@@ -127,10 +127,10 @@
                                             <td>Approved Leaves<br>( Half Day )</td>
                                             <td>{{ $approvedLossOfPaySpecial }}</td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td>Penalty Deduction</td>
                                             <td>₹ {{ $penaltyLossOfPay }}.00</td>
-                                        </tr>
+                                        </tr> --}}
                                     </table>
                                     <p style="font-size: 12px; font-style:italic; margin:0; padding:0; margin-left:-0.5rem;">**L.O.P = Loss of Pay</p>
                                 </div>
@@ -148,13 +148,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
                 <div class="col-7">
                     <div class="card mb-4">
                         <div class="card-header">
                             <strong>
-                                Apply for Leave
+                                Apply for Leaven  {{ $remainingLeaves }}
                             </strong>
                         </div>
                         <div class="card-body p-5">
@@ -164,12 +164,11 @@
                                     <div class="col">
                                         <select name="leave_type" id="" class="form-control">
                                             <option value="" selected>Select Leave Type</option>
-                                            {{-- @if ($remainingLeaves < 1 && (\today()->format('M') == \Carbon\Carbon::parse($leaveDetails->last()->updated_at)->format('M')))
+                                            {{-- && (\today()->format('M')) == \Carbon\Carbon::parse($leaveDetails->last()->updated_at)->format('M') --}}
+                                            @if ($remainingLeaves <= 1 && $remainingLeaves != 0)
                                                 <option value="Half Day">Half Day</option>
                                                 <option value="Casual Leave">Casual Leave</option>
-                                            @endif --}}
-                                            <option value="Half Day">Half Day</option>
-                                            <option value="Casual Leave">Casual Leave</option>
+                                            @endif
                                             <option value="Loss of Pay">Loss of Pay</option>
                                             <option value="Loss of Pay (Half Day)">Loss of Pay (Half Day)</option>
                                         </select>

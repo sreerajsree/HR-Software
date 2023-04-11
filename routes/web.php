@@ -93,5 +93,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/request-hike/', [HikeController::class, 'requestHike'])->name('hike.request');
     Route::get('/hiring', [HikeController::class, 'hiring'])->name('hiring.index');
     Route::post('/add-candidate', [HikeController::class, 'addCandidate'])->name('add.candidate');
+    Route::get('/move-scheduled/{id}', [HikeController::class, 'moveScheduled'])->name('move.scheduled');
+    Route::post('/update-candidate/{id}', [HikeController::class, 'updateCandidate'])->name('update.candidate');
+    Route::get('/move-selected/{id}', [HikeController::class, 'moveSelected'])->name('move.selected');
+    Route::get('/move-rejected/{id}', [HikeController::class, 'moveRejected'])->name('move.rejected');
+    Route::get('/move-joined/{id}', [HikeController::class, 'moveJoined'])->name('move.joined');
     
 });

@@ -107,7 +107,7 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <img src="/ProfileImages/{{ Auth::user()->profile_pic }}" alt="Profile Picture"
-                                                class="rounded-circle mt-2" width="150">
+                                                class="rounded-circle mt-2" width="150" height="150" style="object-fit: cover">
                                         </div>
                                         <div class="col-4">
                                             <table class="table">

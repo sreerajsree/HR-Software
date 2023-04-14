@@ -146,6 +146,7 @@ class companyController extends Controller
         $personal_table->perm_pincode = $request->perm_pincode;
         $personal_table->qualification = $request->qualification;
         $personal_table->education = $request->education;
+        $personal_table->yop = $request->yop;
         $personal_table->pancard = $request->pancard;
         $personal_table->aadhaar = $request->aadhaar;
         $personal_table->uan = $request->uan;

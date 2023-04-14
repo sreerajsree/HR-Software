@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
                                 <img src="/ProfileImages/{{ Auth::user()->profile_pic }}" alt="Profile Picture"
-                                    class="rounded-circle" width="150">
+                                    class="rounded-circle" width="150" height="150" style="object-fit: cover">
                                 <div class="mt-3">
                                     <h4>{{ Auth::user()->name }}</h4>
                                     <p class="fw-bold mb-1">
@@ -77,7 +77,7 @@
                                     <h6 class="mb-0">Full Name</h6>
                                 </div>
                                 <div class="col-sm-9">
-                                    @if (isset($user->fname) && isset($user->mname) && isset($user->lname))
+                                    @if (isset($user->fname) || isset($user->mname) || isset($user->lname))
                                         {{ $user->fname }} {{ $user->mname }} {{ $user->lname }}
                                     @else
                                         Not Yet Updated
@@ -90,7 +90,7 @@
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9">
-                                    {{ Auth::user()->email }}
+                                    {{ $user->email }}
                                 </div>
                             </div>
                             <hr>
@@ -127,6 +127,7 @@
                             </div>
                         </div>
                     </div>
+                    @if(Auth::user()->status == 0)
                     <div class="card mb-3">
                         <div class="card-body">
                             <h3 class="mb-5">Change Password</h3>
@@ -167,6 +168,7 @@
                             </form>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -78,9 +78,6 @@ class HikeController extends Controller
 
     public function updateCandidate(Request $request, $id)
     {
-        $request->validate([
-            'resume' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048',
-        ]);
 
         $hire = Hiring::find($id);
         if ($request->hasfile('resume')) {
@@ -88,13 +85,13 @@ class HikeController extends Controller
             $name = $file->getClientOriginalName();
             $file->move(public_path() . '/Resumes/', $name);
             $hire->resume = $name;
+        }
             $hire->date_of_interview = $request->date_of_interview;
             $hire->team = $request->team;
             $hire->comments = $request->comments;
             $hire->save();
             Alert::toast('Added Date & Time of Inteview Successfully', 'success');
             return redirect()->back();
-        }
     }
 
     public function moveSelected($id)

@@ -19,8 +19,9 @@
                                                     <a class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab"
                                                         data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
                                                         aria-selected="true">
-                                                        <div class="card mb-4 p-3 cardhover">
-                                                            <img src="assets/img/apsensys-logo.png" alt="" style="width: 200px; height: 50px" class="d-flex mx-auto">
+                                                        <div class="card mb-4 p-4 cardhover">
+                                                            {{-- <img src="assets/img/apsensys-logo.png" alt="" style="width: 200px; height: 50px" class="d-flex mx-auto"> --}}
+                                                            <h3 class="text-center m-0">Apsensys Technologies</h3>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -28,8 +29,9 @@
                                                     <a class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab"
                                                         data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
                                                         aria-selected="false">
-                                                        <div class="card mb-4 p-3 cardhover">
-                                                            <img src="assets/img/tsr-logo.png" alt="" style="width: 260px; height: 50px" class="d-flex mx-auto">
+                                                        <div class="card mb-4 p-4 cardhover">
+                                                            {{-- <img src="assets/img/apsensys-logo.png" alt="" style="width: 200px; height: 50px" class="d-flex mx-auto"> --}}
+                                                            <h3 class="text-center m-0">Apsensys Media</h3>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -37,9 +39,9 @@
                                                     <a class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab"
                                                         data-coreui-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
                                                         aria-selected="false">
-                                                        <div class="card mb-4 p-3 cardhover">
-                                                            <img src="assets/img/cb-logo.svg" alt="" style="width: 200px; height: 50px"
-                                                                class="d-flex mx-auto">
+                                                        <div class="card mb-4 p-4 cardhover">
+                                                            {{-- <img src="assets/img/apsensys-logo.png" alt="" style="width: 200px; height: 50px" class="d-flex mx-auto"> --}}
+                                                            <h3 class="text-center m-0">Apsensys Care</h3>
                                                         </div>
                                                     </a>
                                                 </div>

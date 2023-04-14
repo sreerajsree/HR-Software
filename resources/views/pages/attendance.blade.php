@@ -106,11 +106,6 @@ $noLogout = Carbon::parse(\now())
                                 <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-arrow-thick-from-top"></use>
                             </svg>
                             <p class="border-bottom">9 Hours</p>
-                            <h6 class="pt-3">Weekly Off</h6>
-                            <svg class="icon">
-                                <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-arrow-thick-from-top"></use>
-                            </svg>
-                            <p class="border-bottom">Saturdays & Sundays</p>
                         </div>
                     </div>
                 </div>
@@ -152,7 +147,10 @@ $noLogout = Carbon::parse(\now())
             });
 
             // DataTables initialisation
-            var table = $('#example1').DataTable();
+            var table = $('#example1').DataTable({
+                "aLengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
+                "pageLength": 10
+            });
 
             // Refilter the table
             $('#min, #max').on('change', function() {

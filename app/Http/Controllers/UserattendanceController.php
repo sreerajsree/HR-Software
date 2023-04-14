@@ -10,9 +10,9 @@ use App\Models\personal_table;
 class UserattendanceController extends Controller
 {
     public function index(){
-        $apsensys = User::select('users.id','users.empcode','personal_tables.fname','personal_tables.designation','users.shift','companies.name as companyname')->join('companies','companies.id','users.company_id')->join('personal_tables','personal_tables.user_id','users.id')->where('companies.name','Apsensys')->get();
-        $tsr = User::select('users.id','users.empcode','personal_tables.fname','personal_tables.designation','users.shift','companies.name as companyname')->join('companies','companies.id','users.company_id')->join('personal_tables','personal_tables.user_id','users.id')->where('companies.name','The-Silicon-Review')->get();
-        $cio = User::select('users.id','users.empcode','personal_tables.fname','personal_tables.designation','users.shift','companies.name as companyname')->join('companies','companies.id','users.company_id')->join('personal_tables','personal_tables.user_id','users.id')->where('companies.name','CIO-Bulletin')->get();
+        $apsensys = User::select('users.id','users.empcode','personal_tables.fname','personal_tables.designation','users.shift','companies.name as companyname')->join('companies','companies.id','users.company_id')->join('personal_tables','personal_tables.user_id','users.id')->where('companies.name','Apsensys-Technologies')->get();
+        $tsr = User::select('users.id','users.empcode','personal_tables.fname','personal_tables.designation','users.shift','companies.name as companyname')->join('companies','companies.id','users.company_id')->join('personal_tables','personal_tables.user_id','users.id')->where('companies.name','Apsensys-Media')->get();
+        $cio = User::select('users.id','users.empcode','personal_tables.fname','personal_tables.designation','users.shift','companies.name as companyname')->join('companies','companies.id','users.company_id')->join('personal_tables','personal_tables.user_id','users.id')->where('companies.name','Apsensys-Care')->get();
         return view('pages.userattendance',compact('apsensys','tsr','cio'));
     }
 

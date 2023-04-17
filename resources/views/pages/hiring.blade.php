@@ -708,7 +708,7 @@
                 responsive: true,
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    'csv', 'excel', 'pdf', 'print'
                 ],
                 exportOptions: {
                     rows: {
@@ -727,28 +727,28 @@
                 responsive: true,
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    'csv', 'excel', 'pdf', 'print'
                 ]
             });
             $('#example3').DataTable({
                 responsive: true,
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    'csv', 'excel', 'pdf', 'print'
                 ]
             });
             $('#example4').DataTable({
                 responsive: true,
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    'csv', 'excel', 'pdf', 'print'
                 ]
             });
             $('#example6').DataTable({
                 responsive: true,
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    'csv', 'excel', 'pdf', 'print'
                 ]
             });
         });

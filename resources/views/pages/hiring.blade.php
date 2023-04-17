@@ -4,6 +4,10 @@
         Hiring | HR-Soft</title>
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.4.0/css/dataTables.dateTime.min.css">
+@endsection
+
 @section('content')
     <div class="header-divider"></div>
     <div class="body flex-grow-1 px-3">
@@ -160,7 +164,26 @@
                                         </div>
                                     </div>
                                     <h2 class="my-5">Calls & Schedules</h2>
-                                    <table class="table table-striped table-bordered" id="example1" style="width:100%">
+                                    <div class="d-flex">
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">From: </span>
+                                                    <input type="text" id="min" name="min"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">To :</span>
+                                                    <input type="text" id="max" name="max"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table class="table table-striped table-bordered display nowrap" id="example1"
+                                        style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -647,15 +670,59 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="https://cdn.datatables.net/datetime/1.4.0/js/dataTables.dateTime.min.js"></script>
+
     <script>
+        var minDate, maxDate;
+
+        // Custom filtering function which will search data in column four between two values
+        $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {
+                var min = minDate.val();
+                var max = maxDate.val();
+                var date = new Date(data[6]);
+
+                if (
+                    (min === null && max === null) ||
+                    (min === null && date <= max) ||
+                    (min <= date && max === null) ||
+                    (min <= date && date <= max)
+                ) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
         $(document).ready(function() {
-            $('#example1').DataTable({
+            // Create date inputs
+            minDate = new DateTime($('#min'), {
+                format: 'MMMM Do YYYY'
+            });
+            maxDate = new DateTime($('#max'), {
+                format: 'MMMM Do YYYY'
+            });
+
+            // DataTables initialisation
+            var table = $('#example1').DataTable({
                 responsive: true,
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
+                ],
+                exportOptions: {
+                    rows: {
+                        search: 'applied'
+                    }
+                },
             });
+
+            // Refilter the table
+            $('#min, #max').on('change', function() {
+                table.draw();
+            });
+        });
+        $(document).ready(function() {
             $('#example2').DataTable({
                 responsive: true,
                 dom: 'Bfrtip',

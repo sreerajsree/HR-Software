@@ -134,7 +134,7 @@
                                                 <tr>
                                                     <th>Name</th>
                                                     <td>
-                                                        @if (isset($users->fname) && isset($users->mname) && isset($users->lname))
+                                                        @if (isset($users->fname) || isset($users->mname) || isset($users->lname))
                                                             {{ $users->fname }} {{ $users->mname }} {{ $users->lname }}
                                                         @else
                                                             Not Yet Updated

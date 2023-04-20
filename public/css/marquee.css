@@ -8,13 +8,13 @@
 }
 .news {
     width: 80%;
-    background:#FFBE7BFF;
+    background:#6c6cbf;
     padding: 0 2%;
 }
 .title {
     width: 20%;
     text-align: center;
-    background: #FFA351FF;
+    background: #000080;
     position: relative;
     color: #fff;
 }

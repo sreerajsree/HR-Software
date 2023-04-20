@@ -203,7 +203,7 @@
                                     tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1 class="text-center my-4">Apsensys Technologies Pvt Ltd</h1>
+                                            <h1 class="my-4">Apsensys Technologies Pvt Ltd</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -213,7 +213,7 @@
                                                 <div class="card mb-4">
                                                     <!--<img src="assets/img/apsensys-logo.png" alt="" style="width: 400px;"-->
                                                     <!--    class="mx-auto">-->
-                                                    <h1>Apsensys Technologies Pvt Ltd</h1>
+                                                    <h1 class="text-center my-4">Apsensys Technologies Pvt Ltd</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>
@@ -245,7 +245,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @section('scripts1')
+                                    {{-- @section('scripts1')
                                         <script>
                                             const doughnutChart = new Chart(document.getElementById('apsensys'), {
                                                 type: 'doughnut',
@@ -264,9 +264,9 @@
                                                 options: {
                                                     responsive: true
                                                 }
-                                            }); // eslint-disable-next-line no-unused-vars
+                                            }); 
                                         </script>
-                                    @endsection
+                                    @endsection --}}
                                 </div>
                             @break
 
@@ -275,7 +275,7 @@
                                     aria-labelledby="nav-profile-tab" tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>Apsensys Media</h1>
+                                            <h1 class="my-4">Apsensys Media</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -326,7 +326,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @section('scripts2')
+                                    {{-- @section('scripts2')
                                         <script>
                                             const doughnutChart1 = new Chart(document.getElementById('tsr'), {
                                                 type: 'doughnut',
@@ -345,9 +345,9 @@
                                                 options: {
                                                     responsive: true
                                                 }
-                                            }); // eslint-disable-next-line no-unused-vars
+                                            }); 
                                         </script>
-                                    @endsection
+                                    @endsection --}}
                                 </div>
                             @break
 
@@ -356,7 +356,7 @@
                                     aria-labelledby="nav-contact-tab" tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>Apsensys Care</h1>
+                                            <h1 class="my-4">Apsensys Care</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -405,7 +405,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @section('scripts3')
+                                    {{-- @section('scripts3')
                                         <script>
                                             const doughnutChart2 = new Chart(document.getElementById('cb'), {
                                                 type: 'doughnut',
@@ -424,9 +424,9 @@
                                                 options: {
                                                     responsive: true
                                                 }
-                                            }); // eslint-disable-next-line no-unused-vars
+                                            });
                                         </script>
-                                    @endsection
+                                    @endsection --}}
                                 </div>
                             @break
 
@@ -435,7 +435,7 @@
                                     aria-labelledby="nav-home-tab" tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>Apsensys Technologies Pvt Ltd.</h1>
+                                            <h1 class="my-4">Apsensys Technologies Pvt Ltd.</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -596,7 +596,7 @@
                                     tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>Apsensys Media</h1>
+                                            <h1 class="my-4">Apsensys Media</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -634,7 +634,7 @@
                                                 <div class="card">
                                                     <!--<img src="assets/img/tsr-logo.png" alt="" style="width: 430px;"-->
                                                     <!--    class="mx-auto">-->
-                                                    <h1 class="text-center my-4">Apsensys Media LLP</h1>
+                                                    <h1 class="my-4 text-center">Apsensys Media LLP</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>
@@ -765,7 +765,7 @@
                                     tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1>Apsensys Care</h1>
+                                            <h1 class="my-4">Apsensys Care</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -803,7 +803,7 @@
                                                 <div class="card">
                                                     <!--<img src="assets/img/cb-logo.svg" alt="" style="width: 430px;"-->
                                                     <!--    class="mx-auto py-5">-->
-                                                    <h1 class="text-center my-4">Apsensys Care</h1>
+                                                    <h1 class="my-4 text-center">Apsensys Care</h1>
                                                     <div class="p-3">
                                                         <table class="table">
                                                             <tr>

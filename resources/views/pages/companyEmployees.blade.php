@@ -140,40 +140,40 @@
                                                         <nav>
                                                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                                                 <button class="nav-link active fw-bold"
-                                                                    id="nav-profile-tab" data-coreui-toggle="tab"
-                                                                    data-coreui-target="#nav-profile" type="button"
-                                                                    role="tab" aria-controls="nav-profile"
+                                                                    id="nav-profile-tab{{ $emp->id }}" data-coreui-toggle="tab"
+                                                                    data-coreui-target="#nav-profile{{ $emp->id }}" type="button"
+                                                                    role="tab" aria-controls="nav-profile{{ $emp->id }}"
                                                                     aria-selected="true">Profile</button>
-                                                                <button class="nav-link fw-bold" id="nav-office-tab"
+                                                                <button class="nav-link fw-bold" id="nav-office-tab{{ $emp->id }}"
                                                                     data-coreui-toggle="tab"
-                                                                    data-coreui-target="#nav-office" type="button"
-                                                                    role="tab" aria-controls="nav-office"
+                                                                    data-coreui-target="#nav-office{{ $emp->id }}" type="button"
+                                                                    role="tab" aria-controls="nav-office{{ $emp->id }}"
                                                                     aria-selected="false">Office</button>
-                                                                <button class="nav-link fw-bold" id="nav-department-tab"
+                                                                <button class="nav-link fw-bold" id="nav-department-tab{{ $emp->id }}"
                                                                     data-coreui-toggle="tab"
-                                                                    data-coreui-target="#nav-department" type="button"
-                                                                    role="tab" aria-controls="nav-department"
+                                                                    data-coreui-target="#nav-department{{ $emp->id }}" type="button"
+                                                                    role="tab" aria-controls="nav-department{{ $emp->id }}"
                                                                     aria-selected="false">Department</button>
                                                                 <button class="nav-link fw-bold"
-                                                                    id="nav-qualification-tab" data-coreui-toggle="tab"
-                                                                    data-coreui-target="#nav-qualification" type="button"
-                                                                    role="tab" aria-controls="nav-qualification"
+                                                                    id="nav-qualification-tab{{ $emp->id }}" data-coreui-toggle="tab"
+                                                                    data-coreui-target="#nav-qualification{{ $emp->id }}" type="button"
+                                                                    role="tab" aria-controls="nav-qualification{{ $emp->id }}"
                                                                     aria-selected="false">Qualification</button>
-                                                                <button class="nav-link fw-bold" id="nav-address-tab"
+                                                                <button class="nav-link fw-bold" id="nav-address-tab{{ $emp->id }}"
                                                                     data-coreui-toggle="tab"
-                                                                    data-coreui-target="#nav-address" type="button"
-                                                                    role="tab" aria-controls="nav-address"
+                                                                    data-coreui-target="#nav-address{{ $emp->id }}" type="button"
+                                                                    role="tab" aria-controls="nav-address{{ $emp->id }}"
                                                                     aria-selected="false">Address</button>
-                                                                <button class="nav-link fw-bold" id="nav-bank-tab"
+                                                                <button class="nav-link fw-bold" id="nav-bank-tab{{ $emp->id }}"
                                                                     data-coreui-toggle="tab"
-                                                                    data-coreui-target="#nav-bank" type="button"
-                                                                    role="tab" aria-controls="nav-bank"
+                                                                    data-coreui-target="#nav-bank{{ $emp->id }}" type="button"
+                                                                    role="tab" aria-controls="nav-bank{{ $emp->id }}"
                                                                     aria-selected="false">Bank</button>
                                                             </div>
                                                         </nav>
                                                         <div class="tab-content" id="nav-tabContent">
-                                                            <div class="tab-pane fade show active" id="nav-profile"
-                                                                role="tabpanel" aria-labelledby="nav-profile-tab"
+                                                            <div class="tab-pane fade show active" id="nav-profile{{ $emp->id }}"
+                                                                role="tabpanel" aria-labelledby="nav-profile-tab{{ $emp->id }}"
                                                                 tabindex="0">
                                                                 <div class="w-100 mt-5">
                                                                     <table
@@ -249,8 +249,8 @@
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="nav-office" role="tabpanel"
-                                                                aria-labelledby="nav-office-tab" tabindex="0">
+                                                            <div class="tab-pane fade" id="nav-office{{ $emp->id }}" role="tabpanel"
+                                                                aria-labelledby="nav-office-tab{{ $emp->id }}" tabindex="0">
                                                                 <div class="w-100 mt-5">
                                                                     <table
                                                                         class="w-100 table table-striped table-bordered">
@@ -292,8 +292,8 @@
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="nav-department"
-                                                                role="tabpanel" aria-labelledby="nav-department-tab"
+                                                            <div class="tab-pane fade" id="nav-department{{ $emp->id }}"
+                                                                role="tabpanel" aria-labelledby="nav-department-tab{{ $emp->id }}"
                                                                 tabindex="0">
                                                                 <div class="w-100 mt-5">
                                                                     <table
@@ -317,8 +317,8 @@
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="nav-qualification"
-                                                                role="tabpanel" aria-labelledby="nav-qualification-tab"
+                                                            <div class="tab-pane fade" id="nav-qualification{{ $emp->id }}"
+                                                                role="tabpanel" aria-labelledby="nav-qualification-tab{{ $emp->id }}"
                                                                 tabindex="0">
                                                                 <div class="w-100 mt-5">
                                                                     <table
@@ -334,8 +334,8 @@
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="nav-address" role="tabpanel"
-                                                                aria-labelledby="nav-address-tab" tabindex="0">
+                                                            <div class="tab-pane fade" id="nav-address{{ $emp->id }}" role="tabpanel"
+                                                                aria-labelledby="nav-address-tab{{ $emp->id }}" tabindex="0">
                                                                 <div class="w-100 mt-5">
                                                                     <h4>Permanent Address</h4>
                                                                     <table
@@ -387,8 +387,8 @@
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="nav-bank" role="tabpanel"
-                                                                aria-labelledby="nav-bank-tab" tabindex="0">
+                                                            <div class="tab-pane fade" id="nav-bank{{ $emp->id }}" role="tabpanel"
+                                                                aria-labelledby="nav-bank-tab{{ $emp->id }}" tabindex="0">
                                                                 <div class="w-100 mt-5">
                                                                     <table
                                                                         class="w-100 table table-striped table-bordered">

@@ -37,6 +37,7 @@
                         <th scope="col">Day</th>
                         <th scope="col">Event</th>
                         @if (Auth::user()->status == 0)
+                        <th scope="col">Shift</th>
                         <th scope="col">Actions</th>
                         @endif
                       </tr>
@@ -50,6 +51,7 @@
                           <td>{{\Carbon\Carbon::parse($data->date)->isoFormat('dddd')}}</td>
                           <td>{{$data->event}}</td>
                           @if (Auth::user()->status == 0)
+                          <td>{{$data->shift}}</td>
                               <td class="d-flex justify-content-around">
                                 <a onclick="update('{{$data}}')" class="btn btn-warning btn-sm" aria-pressed="true" data-coreui-toggle="modal" data-coreui-target="#holiday-modal">
                                   <svg class="icon text-white">

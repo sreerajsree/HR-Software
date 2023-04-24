@@ -12,10 +12,10 @@ class HolidaysController extends Controller
 {
     public function holidays(){
         if (Auth::user()->status == 0) {
-            $holidays = Holiday::all();
+            $holidays = Holiday::orderBy('date', 'ASC')->get();
         }
         else{
-            $holidays = Holiday::where('shift',Auth::user()->shift)->get();
+            $holidays = Holiday::where('shift',Auth::user()->shift)->orderBy('date', 'ASC')->get();
         }
         return view('pages.holidays',['holidays'=>$holidays]);
     }

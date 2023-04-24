@@ -1,16 +1,17 @@
 @php
-use Carbon\Carbon;
-$attendance = Session::get('attendance');
-$totalHours = Carbon::parse($attendance->time_out)
-    ->diff(Carbon::parse($attendance->time_in))
-    ->format('%H:%I:%S');
-$noLogout = Carbon::parse(\now())
-    ->diff(Carbon::parse($attendance->time_in))
-    ->format('%H:%I:%S');
+    use Carbon\Carbon;
+    $attendance = Session::get('attendance');
+    $totalHours = Carbon::parse($attendance->time_out)
+        ->diff(Carbon::parse($attendance->time_in))
+        ->format('%H:%I:%S');
+    $noLogout = Carbon::parse(\now())
+        ->diff(Carbon::parse($attendance->time_in))
+        ->format('%H:%I:%S');
 @endphp
 @extends('layouts.home')
 @section('title')
-    <title>Attendance | HR-Soft</title>
+    <title>
+        Attendance | HR-Soft</title>
 @endsection
 
 @section('styles')
@@ -25,7 +26,10 @@ $noLogout = Carbon::parse(\now())
                 <div class="col-10">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <strong>Attendance @if (Auth::user()->status == 0) | {{$myattendance[0]->fname}}  @endif</strong>
+                            <strong>Attendance @if (Auth::user()->status == 0)
+                                    | {{ $myattendance[0]->fname }}
+                                @endif
+                            </strong>
                         </div>
                         <div class="card-body table-responsive">
                             <div class="d-flex">
@@ -44,7 +48,7 @@ $noLogout = Carbon::parse(\now())
                                     </div>
                                 </div>
                             </div>
-                            <table id="example1" class="display nowrap table table-striped table-bordered"
+                            <table id="example1" class="display nowrap table  table-bordered"
                                 style="width:100%">
                                 <thead>
                                     <tr>
@@ -58,7 +62,7 @@ $noLogout = Carbon::parse(\now())
                                 </thead>
                                 <tbody>
                                     @foreach ($myattendance as $my)
-                                        <tr>
+                                        <tr style="font-weight:500" @if(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '04:30') class="text-warning" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '09:01' || $my->time_out == '00:00:00') class="text-danger" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') > '09:00') class="text-success" @endif>
                                             <td>{{ $my->date }}</td>
                                             <td>{{ Carbon::parse($my->date)->format('d F Y') }}</td>
                                             <td>{{ Carbon::parse($my->date)->format('l') }}</td>
@@ -96,9 +100,9 @@ $noLogout = Carbon::parse(\now())
                             </svg>
                             <p class="border-bottom">
                                 @if (Auth::user()->shift == 'IN')
-                                12:00 PM to 09:00 PM
+                                    12:00 PM to 09:00 PM
                                 @else
-                                07:00 PM to 04:00 AM
+                                    07:00 PM to 04:00 AM
                                 @endif
                             </p>
                             <h6 class="pt-3">Working Hours</h6>
@@ -148,8 +152,14 @@ $noLogout = Carbon::parse(\now())
 
             // DataTables initialisation
             var table = $('#example1').DataTable({
-                "aLengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
-                "pageLength": 10
+                "aLengthMenu": [
+                    [10, 20, 30, -1],
+                    [10, 20, 30, "All"]
+                ],
+                "pageLength": 10,
+                order: [
+                    [0, 'desc']
+                ],
             });
 
             // Refilter the table

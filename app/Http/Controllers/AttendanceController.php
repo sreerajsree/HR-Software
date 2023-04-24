@@ -12,7 +12,7 @@ class AttendanceController extends Controller
 {
     public function index(){
 
-        $myattendance = Attendance::join('personal_tables','personal_tables.user_id','attendances.empcode')->where('empcode', Auth::user()->id)->get();
+        $myattendance = Attendance::join('personal_tables','personal_tables.user_id','attendances.empcode')->where('empcode', Auth::user()->id)->orderBy('date', 'DESC')->get();
 
         return view('pages.attendance', compact('myattendance'));
     }

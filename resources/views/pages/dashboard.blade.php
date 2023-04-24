@@ -275,7 +275,7 @@
                                     aria-labelledby="nav-profile-tab" tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1 class="my-4">Apsensys Media</h1>
+                                            <h1 class="my-4">Apsensys Media LLP</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
@@ -441,7 +441,7 @@
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card mb-4">
                                                     <div class="c-chart-wrapper">
-                                                        <canvas id="apsensys"></canvas>
+                                                        <canvas id="apsensystechnologies"></canvas>
                                                     </div>
                                                     <div class="p-5">
                                                         <table class="table">
@@ -571,7 +571,7 @@
                                     </div>
                                     @section('scripts1')
                                         <script>
-                                            const doughnutChart = new Chart(document.getElementById('apsensys'), {
+                                            const doughnutChartApsensysTechnologies = new Chart(document.getElementById('apsensystechnologies'), {
                                                 type: 'doughnut',
                                                 data: {
                                                     labels: ['Employees on Training', 'Permanent Employees', 'Employees on Notice Period',
@@ -596,13 +596,13 @@
                                     tabindex="0">
                                     <div class="col-12">
                                         <div class="card mb-3 p-3">
-                                            <h1 class="my-4">Apsensys Media</h1>
+                                            <h1 class="my-4">Apsensys Media LLP</h1>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card mb-4">
                                                     <div class="c-chart-wrapper">
-                                                        <canvas id="tsr"></canvas>
+                                                        <canvas id="apsensysmedia"></canvas>
                                                     </div>
                                                     <div class="p-5">
                                                         <table class="table">
@@ -740,7 +740,7 @@
                                     </div>
                                     @section('scripts2')
                                         <script>
-                                            const doughnutChart1 = new Chart(document.getElementById('tsr'), {
+                                            const doughnutChartApsensysMedia = new Chart(document.getElementById('apsensysmedia'), {
                                                 type: 'doughnut',
                                                 data: {
                                                     labels: ['Employees on Training', 'Permanent Employees', 'Employees on Notice Period',
@@ -771,7 +771,7 @@
                                             <div class="col-sm-6 col-lg-6">
                                                 <div class="card mb-4">
                                                     <div class="c-chart-wrapper">
-                                                        <canvas id="cb"></canvas>
+                                                        <canvas id="apsensyscare"></canvas>
                                                     </div>
                                                     <div class="p-5">
                                                         <table class="table">
@@ -907,7 +907,7 @@
                                     </div>
                                     @section('scripts3')
                                         <script>
-                                            const doughnutChart2 = new Chart(document.getElementById('cb'), {
+                                            const doughnutChartApsensysCare = new Chart(document.getElementById('apsensyscare'), {
                                                 type: 'doughnut',
                                                 data: {
                                                     labels: ['Employees on Training', 'Permanent Employees', 'Employees on Notice Period',

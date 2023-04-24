@@ -83,7 +83,7 @@
                                                 <label for="uan" class="col-sm-2 col-form-label">UAN Number</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" value="{{ $employee->uan }}"
-                                                        aria-label="UAN Number" name="uan" required>
+                                                        aria-label="UAN Number" name="uan">
                                                     <span class="text-danger">to be filled by HR</span>
                                                 </div>
                                             </div>

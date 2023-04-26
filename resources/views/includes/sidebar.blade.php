@@ -235,8 +235,8 @@
                             <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-clock"></use>
                         </svg> Logout Time</th>
                     <td>
-                        @if ($attendance->time_out == '00:00:00')
-                            {{ $attendance->time_out }}
+                        @if ($attendance->time_out == '2000-01-01 00:00:00')
+                            00:00:00
                         @else
                             {{ Carbon::parse($attendance->time_out)->format('g:i:s A') }}
                         @endif
@@ -247,7 +247,7 @@
                             <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-av-timer"></use>
                         </svg> Total Hours</th>
                     <td>
-                        @if ($attendance->time_out == '00:00:00')
+                        @if ($attendance->time_out == '2000-01-01 00:00:00')
                             {{ $noLogout }} Hrs
                         @else
                             {{ $totalHours }} Hrs
@@ -256,7 +256,7 @@
                 </tr>
             </table>
         </div>
-        <button style="position:sticky; bottom:0;" class="btn btn-primary login-btn w-100 py-3 fw-bold @if ($attendance->time_out != '00:00:00') disabled @endif"
+        <button style="position:sticky; bottom:0;" class="btn btn-primary login-btn w-100 py-3 fw-bold @if ($attendance->time_out != '2000-01-01 00:00:00') disabled @endif"
             data-coreui-toggle="modal" data-coreui-target="#timeOutModal">TIME OUT</button>
     </div>
 </div>

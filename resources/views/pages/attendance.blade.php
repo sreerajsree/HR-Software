@@ -62,20 +62,20 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($myattendance as $my)
-                                        <tr style="font-weight:500" @if(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '04:30') class="text-warning" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '09:01' || $my->time_out == '00:00:00') class="text-danger" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') > '09:00') class="text-success" @endif>
+                                        <tr style="font-weight:500" @if(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '04:30') class="text-warning" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '09:01' || $my->time_out == '2000-01-01 00:00:00') class="text-danger" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') > '09:00') class="text-success" @endif>
                                             <td>{{ $my->date }}</td>
                                             <td>{{ Carbon::parse($my->date)->format('d F Y') }}</td>
                                             <td>{{ Carbon::parse($my->date)->format('l') }}</td>
                                             <td>{{ Carbon::parse($my->time_in)->format('g:i A') }}</td>
                                             <td>
-                                                @if ($my->time_out == '00:00:00')
+                                                @if ($my->time_out == '2000-01-01 00:00:00')
                                                     <span class="text-danger">Not Yet</span>
                                                 @else
                                                     {{ Carbon::parse($my->time_out)->format('g:i A') }}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($my->time_out == '00:00:00')
+                                                @if ($my->time_out == '2000-01-01 00:00:00')
                                                     ----
                                                 @else
                                                     {{ Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') }}

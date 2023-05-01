@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\HikeController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,8 @@ use App\Http\Controllers\HikeController;
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::post('/add-employee', [App\Http\Controllers\HomeController::class, 'add'])->name('add.employee');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::post('/add-employee', [HomeController::class, 'add'])->name('add.employee');
     Route::get('/{companyname}/employees', [companyController::class, 'employees'])->name('employees');
     Route::get('/personaldetails', [companyController::class, 'add'])->name('add');
     Route::post('/add-personaldetails', [companyController::class, 'addDetails'])->name('add.details');

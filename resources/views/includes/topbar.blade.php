@@ -18,11 +18,8 @@
 
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn dropdown-toggle" data-coreui-toggle="dropdown"
-                        aria-expanded="false" style="margin-left:10px; color:white;"><span><svg class="icon">
-                            <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-power-standby"></use>
-                        </svg></span>
-                        Logout
+                    <button type="button" class="btn logout-drop dropdown-toggle" data-coreui-toggle="dropdown"
+                        aria-expanded="false" style="margin-left:10px; color:white;">
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('logout') }}"

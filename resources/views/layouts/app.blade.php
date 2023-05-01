@@ -1,4 +1,8 @@
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="description" content="HR Software">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @yield('title')
 <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
@@ -26,7 +30,7 @@
 <!-- Main styles for this application-->
 <link href="/css/style.css" rel="stylesheet">
 <style>
-    .login-head{
+    .login-head {
         font-family: 'Bangers', cursive;
         font-size: 40px;
     }

@@ -8965,6 +8965,19 @@ html:not([dir=rtl]) .sidebar-close {
   border-radius: 0px !important;
 }
 
+.time-out-btn {
+  background-color: var(--cui-yellow);
+  font-weight: bold;
+  border: 1px solid var(--cui-yellow);
+  color: #fff;
+  margin-right: 10px;
+}
+
+.time-out-btn:hover{
+  background-color: #fff;
+  color: #0267CA;
+}
+
 .sidebar-header {
   flex: 0 0 var(--cui-sidebar-header-height);
   padding: var(--cui-sidebar-header-padding-y) var(--cui-sidebar-header-padding-x);

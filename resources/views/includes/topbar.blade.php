@@ -1,3 +1,13 @@
+@php
+    use Carbon\Carbon;
+    $attendance = Session::get('attendance');
+    $totalHours = Carbon::parse($attendance->time_out)
+        ->diff(Carbon::parse($attendance->time_in))
+        ->format('%H:%I:%S');
+    $noLogout = Carbon::parse(\now())
+        ->diff(Carbon::parse($attendance->time_in))
+        ->format('%H:%I:%S');
+@endphp
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">
     <header class="header header-sticky">
         <div class="container-fluid">
@@ -24,9 +34,10 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();"><span><svg class="icon">
-                            <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                        </svg></span>&nbsp;&nbsp;Logout</a>
+                                 document.getElementById('logout-form').submit();"><span><svg
+                                        class="icon">
+                                        <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                                    </svg></span>&nbsp;&nbsp;Logout</a>
                         </li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -35,12 +46,17 @@
                 </div>
             </ul>
             <ul class="header-nav ms-auto text-white">
-                <div id="cTime" class="p-2"></div>
-                <div class="p-2">|</div>
-                <div id="Day" class="p-2"></div>
+                <button
+                    class="btn login-btn time-out-btn @if ($attendance->time_out != '2000-01-01 00:00:00') disabled @endif"
+                    data-coreui-toggle="modal" data-coreui-target="#timeOutModal">TIME OUT</button>
+                <div class="d-flex text-nowrap align-items-center">
+                    <div id="cTime" class="p-2 "></div>
+                    <div class="p-2">|</div>
+                    <div id="Day" class="p-2"></div>
+                </div>
             </ul>
             <ul class="header-nav ms-3">
-                <li class="nav-item"><a class="nav-link" href="{{ route('announcements') }}">
+                <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{ route('announcements') }}">
                         <svg class="icon icon-lg">
                             <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
                         </svg></a></li>
@@ -67,8 +83,7 @@
                             <svg class="icon me-2">
                                 <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
                             </svg> Settings
-                            </a> --}}
-                        <div class="dropdown-divider"></div>
+                        </a> --}}
                     </div>
                 </li>
             </ul>

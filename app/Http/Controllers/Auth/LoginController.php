@@ -58,7 +58,12 @@ class LoginController extends Controller
             $attendance = Attendance::where('empcode', Auth::user()->id)->latest('id')->get()->first();
             $request->session()->put('attendance', $attendance);
             Alert::toast('Login Successfull', 'success');
-            return redirect()->intended('home');
+
+            if(Auth::user()->add_status == 0) {
+                return redirect()->intended('personaldetails');
+            } else {
+                return redirect()->intended('home');
+            }
         } else
             return $this->sendFailedLoginResponse($request);
     }

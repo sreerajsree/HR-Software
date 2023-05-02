@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/documents', [DocumentController::class, 'documents'])->name('documents');
     Route::post('/image-upload', [DocumentController::class, 'fileUpload'])->name('imageUpload');
     Route::get('/view-documents', [DocumentController::class, 'viewDocuments'])->name('view.documents');
+    Route::get('/unsubmitted-documents', [DocumentController::class, 'unsubmittedDocuments'])->name('unsubmitted.documents');
     Route::get('/leave', [LeaveController::class, 'leave'])->name('leave');
     Route::post('/leave-request', [LeaveController::class, 'leaveRequest'])->name('leave.request');
     Route::get('/leaveapplications', [LeaveController::class, 'leaveApplications'])->name('leave.applications');

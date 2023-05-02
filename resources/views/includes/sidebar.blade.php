@@ -42,6 +42,11 @@
                                     class="nav-icon"></span>
                                 Apsensys Care</a></li>
                         @endif
+                        @if(Auth::user()->status == 0)
+                        <li class="nav-item"><a class="nav-link" href="/unsubmitted-documents"><span
+                                    class="nav-icon"></span>
+                                Doc Unsubmitted</a></li>
+                        @endif
                     </ul>
                 </li>
             @endif
@@ -256,7 +261,5 @@
                 </tr>
             </table>
         </div>
-        <button style="position:sticky; bottom:0;" class="btn btn-primary login-btn w-100 py-3 fw-bold @if ($attendance->time_out != '2000-01-01 00:00:00') disabled @endif"
-            data-coreui-toggle="modal" data-coreui-target="#timeOutModal">TIME OUT</button>
     </div>
 </div>

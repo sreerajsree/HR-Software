@@ -48,5 +48,11 @@ class DocumentController extends Controller
         $uploaded = User::join('documents', 'users.id', '=', 'documents.user_id')->select('users.*', 'documents.name as doc_name')->get();
         return view('pages.viewdocuments', compact('users', 'uploaded'));
     }
+
+    public function unsubmittedDocuments()
+    {
+        $unsubmitted = User::join('companies','companies.id','users.company_id')->select('users.*', 'companies.name as companyname')->where('add_status',0)->get();
+        return view('pages.unsubmitted', compact('unsubmitted'));
+    }
     
 }

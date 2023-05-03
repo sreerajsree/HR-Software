@@ -47,8 +47,11 @@
     @yield('content')
 
     <footer class="footer">
-        <div>© <?php echo date("Y"); ?> Apsensys Technologies.</div>
-        <div class="ms-auto">Powered by <a href="mailto:online@thesiliconreview.com" class="text-primary" style="text-decoration: none;">Development Team</a></div>
+        <div>©
+            <?php echo date('Y'); ?> Apsensys Technologies.
+        </div>
+        <div class="ms-auto">Powered by <a href="mailto:online@thesiliconreview.com" class="text-primary"
+                style="text-decoration: none;">Development Team</a></div>
     </footer>
     </div>
 
@@ -69,6 +72,11 @@
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+    <script src="
+            https://cdn.jsdelivr.net/npm/moment-timezone@0.5.43/moment-timezone.min.js
+            "></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.31/moment-timezone-with-data.js"></script>
     @yield('scripts')
     @yield('scripts1')
     @yield('scripts2')
@@ -79,11 +87,20 @@
             $('#cTime').html(cTime);
         }, 1000);
 
+        setInterval(function() {
+            var cTimeUS = moment().tz("America/Los_Angeles").format('MMMM Do YYYY, h:mm:ss A');
+            $('#cTimeUS').html(cTimeUS);
+        }, 1000);
+
         var Day = moment().format('dddd');
         $('#Day').html(Day);
         setInterval(function() {
             var currentTime = moment().format('h:mm:ss A');
             $('#currentTime').html(currentTime);
+        }, 1000);
+        setInterval(function() {
+            var currentTimeUS = moment().tz("America/Los_Angeles").format('h:mm:ss A');
+            $('#currentTimeUS').html(currentTimeUS);
         }, 1000);
     </script>
 

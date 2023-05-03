@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Attendance;
 use Auth;
 use Alert;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -48,18 +49,27 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             if ($this->loginValidate() == 0) {
-                $log = new Attendance;
-                $log->empcode = Auth::user()->id;
-                $log->company_id = Auth::user()->company_id;
-                $log->date = \today();
-                $log->time_in = \now();
-                $log->save();
+                if (Auth::user()->shift == "IN") {
+                    $log = new Attendance;
+                    $log->empcode = Auth::user()->id;
+                    $log->company_id = Auth::user()->company_id;
+                    $log->date = \today();
+                    $log->time_in = \now();
+                    $log->save();
+                } elseif (Auth::user()->shift == "US") {
+                    $log = new Attendance;
+                    $log->empcode = Auth::user()->id;
+                    $log->company_id = Auth::user()->company_id;
+                    $log->date = \today();
+                    $log->time_in = Carbon::now('America/Los_Angeles');
+                    $log->save();
+                }
             }
             $attendance = Attendance::where('empcode', Auth::user()->id)->latest('id')->get()->first();
             $request->session()->put('attendance', $attendance);
             Alert::toast('Login Successfull', 'success');
 
-            if(Auth::user()->add_status == 0) {
+            if (Auth::user()->add_status == 0) {
                 return redirect()->intended('personaldetails');
             } else {
                 return redirect()->intended('home');

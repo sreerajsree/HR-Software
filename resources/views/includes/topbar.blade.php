@@ -4,7 +4,10 @@
     $totalHours = Carbon::parse($attendance->time_out)
         ->diff(Carbon::parse($attendance->time_in))
         ->format('%H:%I:%S');
-    $noLogout = Carbon::parse(\now())
+    $noLogout = Carbon::parse(now('Asia/Kolkata'))
+        ->diff(Carbon::parse($attendance->time_in))
+        ->format('%H:%I:%S');
+    $noLogoutUS = Carbon::parse(now('America/Los_Angeles'))
         ->diff(Carbon::parse($attendance->time_in))
         ->format('%H:%I:%S');
 @endphp
@@ -46,11 +49,14 @@
                 </div>
             </ul>
             <ul class="header-nav ms-auto text-white">
-                <button
-                    class="btn login-btn time-out-btn @if ($attendance->time_out != '2000-01-01 00:00:00') disabled @endif"
+                <button class="btn login-btn time-out-btn @if ($attendance->time_out != '2000-01-01 00:00:00') disabled @endif"
                     data-coreui-toggle="modal" data-coreui-target="#timeOutModal">TIME OUT</button>
                 <div class="d-flex text-nowrap align-items-center">
-                    <div id="cTime" class="p-2 "></div>
+                    @if (Auth::user()->shift == "IN")
+                        <div id="cTime" class="p-2 "></div>
+                    @elseif(Auth::user()->shift == "US")
+                        <div id="cTimeUS" class="p-2 "></div>
+                    @endif
                     <div class="p-2">|</div>
                     <div id="Day" class="p-2"></div>
                 </div>

@@ -80,6 +80,10 @@ class LoginController extends Controller
 
     public function loginValidate()
     {
-        return $loginCheck = Attendance::where('empcode', Auth::user()->id)->where('date', \today())->count();
+        if(Auth::user()->shift == "IN") {
+            return $loginCheck = Attendance::where('empcode', Auth::user()->id)->where('date', \today())->count();
+        } elseif(Auth::user()->shift == "US") {
+            return $loginCheck = Attendance::where('empcode', Auth::user()->id)->where('date', Carbon::today('America/Los_Angeles'))->count();
+        }
     }
 }

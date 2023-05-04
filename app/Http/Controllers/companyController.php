@@ -149,7 +149,7 @@ class companyController extends Controller
         $personal_table->yop = $request->yop;
         $personal_table->pancard = $request->pancard;
         $personal_table->aadhaar = $request->aadhaar;
-        $personal_table->uan = $request->uan;
+        $personal_table->uan = "NA";
         $personal_table->bank_name = $request->bank_name;
         $personal_table->bank_branch = $request->bank_branch;
         $personal_table->acc_number = $request->acc_number;

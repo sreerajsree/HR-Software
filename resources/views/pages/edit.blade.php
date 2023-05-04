@@ -79,14 +79,14 @@
                                                     <span class="text-danger">to be filled by HR</span>
                                                 </div>
                                             </div>
-                                            <div class="mb-3 row">
+                                            {{-- <div class="mb-3 row">
                                                 <label for="uan" class="col-sm-2 col-form-label">UAN Number</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" value="{{ $employee->uan }}"
                                                         aria-label="UAN Number" name="uan">
                                                     <span class="text-danger">to be filled by HR</span>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="mb-3 row">
                                                 <label for="esic_no" class="col-sm-2 col-form-label">ESIC No</label>
                                                 <div class="col-sm-10">
@@ -101,7 +101,7 @@
                                                     Status</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-select" aria-label="Employee Status"
-                                                        name="empstatus">
+                                                        name="empstatus" required>
                                                         <option select>Select Employee Status</option>
                                                         <option value="Training" <?php if ($employee->emp_status == 'Training') {
                                                             echo 'selected';
@@ -123,7 +123,7 @@
                                                 <label for="empposition" class="col-sm-2 col-form-label">Position</label>
                                                 <div class="col-sm-10">
                                                     <select class="form-select" aria-label="Employee Posititon"
-                                                        name="empposition">
+                                                        name="empposition" required>
                                                         <option select>Select Employee Position</option>
                                                         <option value="1" <?php if ($employee->status == 1) {
                                                             echo 'selected';

@@ -60,7 +60,7 @@ class LoginController extends Controller
                     $log = new Attendance;
                     $log->empcode = Auth::user()->id;
                     $log->company_id = Auth::user()->company_id;
-                    $log->date = \today();
+                    $log->date = Carbon::today('America/Los_Angeles');
                     $log->time_in = Carbon::now('America/Los_Angeles');
                     $log->save();
                 }

@@ -199,9 +199,9 @@
                             <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-clock"></use>
                         </svg> Current Time</th>
                     <td>
-                        @if (Auth::user()->shift == 'IN')
+                        @if (Auth::user()->shift == "IN")
                             <div id="currentTime"></div>
-                        @elseif(Auth::user()->shift == 'US')
+                        @elseif(Auth::user()->shift == "US")
                             <div id="currentTimeUS"></div>
                         @endif
                     </td>
@@ -233,7 +233,7 @@
                             @if (Auth::user()->shift == 'IN')
                                 {{ $noLogout }} Hrs
                             @elseif(Auth::user()->shift == 'US')
-                                <div id="diff"></div>
+                                {{ $noLogoutUS }} Hrs
                             @endif
                         @else
                             {{ $totalHours }} Hrs
@@ -244,12 +244,3 @@
         </div>
     </div>
 </div>
-
-@push('scripts')
-    <script>
-        let timediff = moment().tz("America/Los_Angeles").format('h:mm:ss');
-        console.log(timediff)
-        let diff = (timediff - {{ $attendance->time_out }})
-        $('#diff').html(diff);
-    </script>
-@endpush

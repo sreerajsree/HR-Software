@@ -35,7 +35,11 @@
                                         @endif
                                     </P>
                                     <p>Joined
-                                        {{ Carbon\Carbon::parse(Auth::user()->created_at)->format('d-M-Y') }}
+                                        @if (isset($user->joined_on))
+                                            {{ $user->joined_on }}
+                                        @else
+                                            Not Yet Updated
+                                        @endif
                                     </p>
                                     <button type="button" class="btn btn-primary" data-coreui-toggle="modal"
                                         data-coreui-target="#profilePicture">
@@ -60,7 +64,8 @@
                                                                         <div id="cropie-demo"></div>
                                                                     </div>
                                                                     <div class="col-md-4" style="padding-top:30px;">
-                                                                        <input class="form-control" type="file" id="upload">
+                                                                        <input class="form-control" type="file"
+                                                                            id="upload">
                                                                         <br />
                                                                         <button class="btn btn-primary upload-result">Upload
                                                                             Image</button>

@@ -40,6 +40,20 @@
 </head>
 
 <body>
+    @php
+    use Carbon\Carbon;
+    $attendance = Session::get('attendance');
+    $totalHours = Carbon::parse($attendance->time_out)
+    ->diff(Carbon::parse($attendance->time_in))
+    ->format('%H:%I:%S');
+    $noLogout = Carbon::parse(now('Asia/Kolkata'))
+    ->diff(Carbon::parse($attendance->time_in))
+    ->format('%H:%I:%S');
+    $attendance->time_in;
+    $start = new Carbon($attendance->time_in);
+    $end = new Carbon(now('America/Los_Angeles')->format('g:i A'));
+    $noLogoutUS = $start->diff($end)->format('%H:%I:%S');
+    @endphp
     @include('includes.sidebar')
     @include('includes.topbar')
     @include('includes.timeout-modal')
@@ -72,9 +86,7 @@
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
-    <script src="
-            https://cdn.jsdelivr.net/npm/moment-timezone@0.5.43/moment-timezone.min.js
-            "></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.43/moment-timezone.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.31/moment-timezone-with-data.js"></script>
     @yield('scripts')
@@ -102,6 +114,7 @@
             var currentTimeUS = moment().tz("America/Los_Angeles").format('h:mm:ss A');
             $('#currentTimeUS').html(currentTimeUS);
         }, 1000);
+
     </script>
 
 </body>

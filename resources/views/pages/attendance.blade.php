@@ -48,8 +48,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <table id="example1" class="display nowrap table  table-bordered"
-                                style="width:100%">
+                            <table id="example1" class="display nowrap table  table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>Date</th>
@@ -62,7 +61,8 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($myattendance as $my)
-                                        <tr style="font-weight:500" @if(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '04:30') class="text-warning" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '09:01' || $my->time_out == '2000-01-01 00:00:00') class="text-danger" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') > '09:00') class="text-success" @endif>
+                                        <tr style="font-weight:500"
+                                            @if (Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '04:30') class="text-warning" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') < '09:01' || $my->time_out == '2000-01-01 00:00:00') class="text-danger" @elseif(Carbon::parse($my->time_out)->diff(Carbon::parse($my->time_in))->format('%H:%I') > '09:00') class="text-success" @endif>
                                             <td>{{ $my->date }}</td>
                                             <td>{{ Carbon::parse($my->date)->format('d F Y') }}</td>
                                             <td>{{ Carbon::parse($my->date)->format('l') }}</td>
@@ -102,14 +102,18 @@
                                 @if (Auth::user()->shift == 'IN')
                                     12:00 PM to 09:00 PM
                                 @else
-                                    07:00 PM to 04:00 AM
+                                    06:00 AM to 04:00 PM
                                 @endif
                             </p>
                             <h6 class="pt-3">Working Hours</h6>
                             <svg class="icon">
                                 <use xlink:href="/vendors/@coreui/icons/svg/free.svg#cil-arrow-thick-from-top"></use>
                             </svg>
-                            <p class="border-bottom">9 Hours</p>
+                            @if (Auth::user()->shift == 'IN')
+                                <p class="border-bottom">9 Hours</p>
+                            @else
+                                <p class="border-bottom">10 Hours</p>
+                            @endif
                         </div>
                     </div>
                 </div>

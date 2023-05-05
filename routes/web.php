@@ -69,7 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/userattendance', [UserattendanceController::class, 'index'])->name('userattendance');
     Route::get('/userattendanceview/{id}', [UserattendanceController::class, 'userattendview'])->name('userattendview');
     Route::get('/view-profile', [ProfileController::class, 'viewprofile'])->name('view-profile');
-    Route::post('/profile-pic-upload', [ProfileController::class, 'fileUpload'])->name('profile-pic-upload');
+    Route::post('image-crop', [ProfileController::class, "imageCropPost"])->name("imageCrop");
     Route::post('/change-password', [ProfileController::class, 'updatePassword'])->name('update-password');
     Route::get('/trainees-leave', [LeaveController::class, 'traineesleave'])->name('trainees.leave');
     Route::post('/trainee-request', [LeaveController::class, 'traineeRequest'])->name('trainee.request');

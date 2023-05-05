@@ -3,6 +3,10 @@
     <title>Profile | HR-Soft</title>
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css">
+@endsection
+
 @section('content')
     <div class="header-divider"></div>
     <div class="body flex-grow-1 px-3">
@@ -39,7 +43,7 @@
                                     </button>
                                     <div class="modal fade" id="profilePicture" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-dialog modal-dialog-centered" style="max-width: 60%">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Change Profile Picture
@@ -48,18 +52,29 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ route('profile-pic-upload') }}" method="POST"
-                                                        enctype="multipart/form-data">
-                                                        @csrf
-                                                        <div class="col">
-                                                            <input class="form-control" name="image" type="file"
-                                                                id="formFile">
+                                                    <div>
+                                                        <div class="panel panel-primary">
+                                                            <div class="panel-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-4 text-center">
+                                                                        <div id="cropie-demo"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4" style="padding-top:30px;">
+                                                                        <input class="form-control" type="file" id="upload">
+                                                                        <br />
+                                                                        <button class="btn btn-primary upload-result">Upload
+                                                                            Image</button>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div id="image-preview"
+                                                                            style="background:#e1e1e1;padding:30px;height:300px;">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                    </div>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Save</button>
-                                                </div>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -127,12 +142,12 @@
                             </div>
                         </div>
                     </div>
-                    @if(Auth::user()->status == 0)
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h3 class="mb-5">Change Password</h3>
-                            <form action="{{ route('update-password') }}" method="POST">
-                                @csrf
+                    @if (Auth::user()->status == 0)
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="mb-5">Change Password</h3>
+                                <form action="{{ route('update-password') }}" method="POST">
+                                    @csrf
                                     @if (session('status'))
                                         <div class="alert alert-success" role="alert">
                                             {{ session('status') }}
@@ -142,35 +157,96 @@
                                             {{ session('error') }}
                                         </div>
                                     @endif
-        
+
                                     <div class="mb-3">
                                         <label for="oldPasswordInput" class="form-label">Old Password</label>
-                                        <input name="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
-                                            placeholder="Old Password">
+                                        <input name="old_password" type="password"
+                                            class="form-control @error('old_password') is-invalid @enderror"
+                                            id="oldPasswordInput" placeholder="Old Password">
                                         @error('old_password')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="newPasswordInput" class="form-label">New Password</label>
-                                        <input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
-                                            placeholder="New Password">
+                                        <input name="new_password" type="password"
+                                            class="form-control @error('new_password') is-invalid @enderror"
+                                            id="newPasswordInput" placeholder="New Password">
                                         @error('new_password')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="confirmNewPasswordInput" class="form-label">Confirm New Password</label>
-                                        <input name="new_password_confirmation" type="password" class="form-control" id="confirmNewPasswordInput"
-                                            placeholder="Confirm New Password">
+                                        <label for="confirmNewPasswordInput" class="form-label">Confirm New
+                                            Password</label>
+                                        <input name="new_password_confirmation" type="password" class="form-control"
+                                            id="confirmNewPasswordInput" placeholder="Confirm New Password">
                                     </div>
                                     <button class="btn btn-primary">Change</button>
-                            </form>
+                                </form>
+                            </div>
                         </div>
-                    </div>
                     @endif
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $uploadCrop = $('#cropie-demo').croppie({
+            enableExif: true,
+            viewport: {
+                width: 200,
+                height: 200,
+                type: 'circle'
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            }
+        });
+
+
+        $('#upload').on('change', function() {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $uploadCrop.croppie('bind', {
+                    url: e.target.result
+                }).then(function() {
+                    console.log('jQuery bind complete');
+                });
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+
+
+        $('.upload-result').on('click', function(ev) {
+            $uploadCrop.croppie('result', {
+                type: 'canvas',
+                size: 'viewport'
+            }).then(function(resp) {
+                $.ajax({
+                    url: "{{ route('imageCrop') }}",
+                    type: "POST",
+                    data: {
+                        "image": resp
+                    },
+                    success: function(data) {
+                        html = '<img src="' + resp + '" />';
+                        $("#image-preview").html(html);
+                        alert(data.success);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

@@ -1,15 +1,5 @@
 @php
     use Carbon\Carbon;
-    $attendance = Session::get('attendance');
-    $totalHours = Carbon::parse($attendance->time_out)
-        ->diff(Carbon::parse($attendance->time_in))
-        ->format('%H:%I:%S');
-    $noLogout = Carbon::parse(now('Asia/Kolkata'))
-        ->diff(Carbon::parse($attendance->time_in))
-        ->format('%H:%I:%S');
-    $noLogoutUS = Carbon::parse(now('America/Los_Angeles'))
-        ->diff(Carbon::parse($attendance->time_in))
-        ->format('%H:%I:%S');
 @endphp
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">
     <header class="header header-sticky">
